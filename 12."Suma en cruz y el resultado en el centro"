@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n = 5,sumaCruz,filaCtr,colCtr;
+    int matriz[n][n] = {
+        {1, 2, 3, 4, 5},
+        {6, 7, 8, 9, 1},
+        {1, 2, 3, 4, 3},
+        {6, 7, 8, 0, 2},
+        {1, 2, 9, 4, 5}
+    };
+    cout << "Matriz original:" << endl;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout<< matriz[i][j] << "  ";
+        }
+        cout << endl;
+    }
+    sumaCruz = 0;
+    filaCtr = n / 2;
+    colCtr = n / 2;
+
+    // Suma de la fila central
+    for (int j = 0; j < n; j++) {
+        sumaCruz += matriz[filaCtr][j];
+    }
+
+    // Suma de la columna central
+    for (int i = 0; i < n; i++) {
+        sumaCruz += matriz[i][colCtr];
+    }
+    // Restar el elemento central para no contar dos veces
+    sumaCruz -= matriz[filaCtr][colCtr];
+
+    // Colocar el resultado en el centro de la matriz
+    matriz[filaCtr][colCtr] = sumaCruz;
+
+    cout << "Matriz con suma en cruz en el centro:" << endl;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << matriz[i][j] << "  ";
+        }
+        cout << endl;
+    }
+
+    return 0;
