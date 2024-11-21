@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n = 4, suma1=0, suma2=0, suma3=0, suma4=0;
+    int matriz[4][4] = {
+        {1, 2, 3, 4},
+        {4, 5, 6, 7},
+        {8, 9, 3, 4},
+        {3, 4, 5, 6}
+    };
+//imprimir la matriz
+    cout << "Matriz" << endl;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << matriz[i][j] << "  ";
+        }
+        cout << endl;
+    }
+    // Suma de cuadrantes
+    for (int i = 0; i < n / 2; i++) {
+        for (int j = 0; j < n / 2; j++) {
+           suma1 += matriz[i][j]; // Cuadrante superior izquierdo
+        suma2 += matriz[i][n - j - 1]; // Cuadrante superior derecho
+       }
+    }
+    for (int i = n / 2; i < n; i++) {
+        for (int j = 0; j < n / 2; j++) {
+        suma3 += matriz[i][j]; // Cuadrante inferior izquierdo
+        suma4 += matriz[i][n - j - 1]; // Cuadrante inferior derecho
+        }
+    }
+
+    cout << "Suma del cuadrante 1: " << suma1 << endl;
+    cout << "Suma del cuadrante 2: " << suma2 << endl;
+    cout << "Suma del cuadrante 3: " << suma3 << endl;
+    cout << "Suma del cuadrante 4: " << suma4 << endl;
+
+    return 0;
+}
